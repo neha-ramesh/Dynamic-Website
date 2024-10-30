@@ -33,8 +33,10 @@ function App() {
 
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
+      <CssBaseline />
+      
       <AppBar position="static">
-        <Toolbar>
+        <Toolbar sx={{backgroundColor: 'primary.main'}}>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
             Decentralized App
           </Typography>
