@@ -1,26 +1,26 @@
 import React from 'react';
 import { styled } from '@mui/material/styles';
-import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
 import Sidenav from '../components/Sidenav';
-import Grid from '@mui/material/Grid2';
+import CustomizedTables from '../components/Table';
+import { Box } from '@mui/material';
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: '#fff',
+  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   textAlign: 'center',
   color: theme.palette.text.secondary,
-  ...theme.applyStyles('dark', {
-    backgroundColor: '#1A2027',
-  }),
-}));
+  flexGrow: 1,
+})) as typeof Paper;
 
 export default function Home() {
   return (
-    <>
-    <Sidenav></Sidenav>
-    <div>Home</div>
-    </>
+    <Box display="flex" minHeight="100vh">
+      <Item>
+        <CustomizedTables />
+        <CustomizedTables />
+      </Item>
+    </Box>
   )
 }
