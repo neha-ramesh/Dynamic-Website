@@ -13,7 +13,7 @@ function App() {
     palette: {
       mode: 'light',
       primary: {
-        main: '#1976d2',
+        main: '#00ff31',
       },
     },
   });
@@ -22,7 +22,7 @@ function App() {
     palette: {
       mode: 'dark',
       primary: {
-        main: '#90caf9',
+        main: '#005600',
       },
     },
   });
@@ -34,7 +34,7 @@ function App() {
   return (
     <ThemeProvider theme={darkMode ? darkTheme : lightTheme}>
       <CssBaseline />
-      
+
       <AppBar position="static">
         <Toolbar sx={{backgroundColor: 'primary.main'}}>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>

@@ -6,7 +6,7 @@ import CustomizedTables from '../components/Table';
 import { Box } from '@mui/material';
 
 const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#1A2027' : '#fff',
+  backgroundColor: theme.palette.mode === 'dark' ? '#18212c' : '#fffff',
   ...theme.typography.body2,
   padding: theme.spacing(1),
   height: 'fit-content',
@@ -19,7 +19,7 @@ const Item = styled(Paper)(({ theme }) => ({
 
 export default function Home() {
   return (
-    <Box sx={{display: 'flex', flexWrap: "wrap", height: "fit-content", width: "100vw"}}>
+    <Box sx={{backgroundColor: 'primary.main', display: 'flex', flexWrap: "wrap", height: "fit-content", width: "100vw"}}>
       <Item>
         <CustomizedTables />
       </Item>
