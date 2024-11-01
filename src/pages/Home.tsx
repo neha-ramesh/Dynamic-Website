@@ -1,32 +1,38 @@
-import React from 'react';
-import { styled } from '@mui/material/styles';
-import Paper from '@mui/material/Paper';
-import Sidenav from '../components/Sidenav';
 import CustomizedTables from '../components/Table';
-import { Box } from '@mui/material';
+import { Box, Typography } from '@mui/material';
+import SelectAutoWidth from '../components/SelectChart';
+import Item from '../components/Item';
+import Charts from '../components/Charts';
 
-const Item = styled(Paper)(({ theme }) => ({
-  backgroundColor: theme.palette.mode === 'dark' ? '#18212c' : '#fffff',
-  ...theme.typography.body2,
-  padding: theme.spacing(1),
-  height: 'fit-content',
-  width: 'fit-content',
-  justifyItems: "center",
-  textAlign: 'center',
-  color: theme.palette.text.secondary,
-  flexGrow: 1,
-})) as typeof Paper;
 
 export default function Home() {
   return (
-    <Box sx={{backgroundColor: 'primary.main', display: 'flex', flexWrap: "wrap", height: "fit-content", width: "100vw"}}>
-      <Item>
-        <CustomizedTables />
+    <Box sx={{ display: "flex", flexDirection: "column", flexWrap: "wrap", width: "100%"}}>
+      <Item sx={{width: "100%"}}>
+        <Box sx={{ backgroundColor: 'black', display: 'flex', flexWrap: "wrap", height: "fit-content", width: "100%"}}>
+          <Item sx={{ border: "3px solid grey", margin: 2 }}>
+            <CustomizedTables />
+          </Item>
+
+          <Item sx={{ border: "3px solid grey", margin: 2 }}>
+            <CustomizedTables />
+          </Item>
+        </Box>
       </Item>
 
-      <Item>
-        <CustomizedTables />
+      <Item sx={{width: "100%"}}>
+        <Box sx={{ display: "flex", flexDirection: "column", flexWrap: "wrap", width: "100%"}}>
+          <Item sx={{width: "100%", display: "flex", flexDirection: "row", justifyContent: "center", alignItems: "center"}}>
+            <Typography variant='h5'>Select the chart : </Typography>
+            <SelectAutoWidth />
+          </Item>
+
+          <Item sx={{width: "100%"}}>
+            <Charts />
+          </Item>
+        </Box>
       </Item>
+
     </Box>
   )
 }

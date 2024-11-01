@@ -7,7 +7,7 @@ import { CssBaseline, AppBar, Toolbar, Typography, IconButton, Box } from "@mui/
 import { Brightness4, Brightness7 } from "@mui/icons-material";
 
 function App() {
-  const [darkMode, setDarkMode] = useState(false);
+  const [darkMode, setDarkMode] = useState(true);
 
   const lightTheme = createTheme({
     palette: {
