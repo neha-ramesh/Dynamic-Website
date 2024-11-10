@@ -1,26 +1,18 @@
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.http.ResponseEntity;
+import java.util.Map;
 
 @RestController
-@RequestMapping("/api/users")
+@RequestMapping("/api/customers")
 public class AppUserController {
-
-    private final AppUserService appUserService;
-
     @Autowired
-    public AppUserController(AppUserService appUserService) {
-        this.appUserService = appUserService;
-    }
+    private AppUserService appUserService;
 
-    @GetMapping("/count")
-    public String getCustomerCounts(@RequestParam String parentName) {
-        long totalCustomers = appUserService.getTotalCustomersByParent(parentName);
-        long activeCustomers = appUserService.getActiveCustomersByParent(parentName);
-        long inactiveCustomers = appUserService.getInactiveCustomersByParent(parentName);
-
-        return "Total Customers: " + totalCustomers +
-               ", Active Customers: " + activeCustomers +
-               ", Inactive Customers: " + inactiveCustomers;
+    @GetMapping("/counts")
+    public ResponseEntity<Map<String, Long>> getCustomerCounts(@RequestParam String parentName) {
+        Map<String, Long> counts = appUserService.getCustomerCountsByParentName(parentName);
+        return ResponseEntity.ok(counts);
     }
 }
